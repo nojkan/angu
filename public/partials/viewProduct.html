@@ -1,0 +1,100 @@
+
+
+    <div class="row" ng-controller="ProductCtrl as pc">
+        &NonBreakingSpace;
+        <div class="jumbotron">
+            <h2>A Modern Web Template</h2>
+
+            <p class="pull-right">... a UI created using AngularJS and Bootstrap</p>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group">
+                <h3>
+                    Products
+                    <a ng-href="/#/products/create" class="btn btn-primary pull-right" id="btn_product_create">Add Product</a>
+                </h3>
+                <hr>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" ng-model="searchText" placeholder="Type here to filter Products...">
+                <hr>
+            </div>
+
+
+            <table id="product_list" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>apiResources</th>
+                 <th>approvalType</th>
+                 <th>attributes</th>
+                 <th>createdBy</th>
+                 <th>description</th>
+                 <th>displayName </th>
+                 <th>environments</th>
+                 <th>name</th>
+                 <th>proxies</th>
+                 <th>quota</th>
+                 <th>quotaInterval</th>
+                 <th>quotaTimeUnit</th>
+                 <th>scopes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="product in pc.products | filter:searchText">
+                     <td>
+                        {{ product.apiResources }}
+                    </td>
+                    <td>
+                        {{ product.approvalType }}
+                    </td>
+                    <td>
+                        {{ product.attributes }}
+                    </td>
+                    <td>
+                        {{ product.createdBy }}
+                    </td>
+                    <td>
+                        {{ product.description }}
+                    </td>
+                     <td>
+                        {{ product.displayName }}
+                    </td>
+                    <td>
+                        {{ product.environments }}
+                    </td>
+                    <td>
+                        {{ product.name }}
+                    </td>
+                    <td>
+                        {{ product.proxies }}
+                    </td>
+                    <td>
+                        {{ product.quota }}
+                    </td>
+                     <td>
+                        {{ product.quotaInterval }}
+                    </td>
+                     <td>
+                        {{ product.quotaTimeUnit }}
+                    </td>
+                     <td>
+                        {{ product.scope }}
+                    </td>
+                   
+                </tr>
+                <tr ng-hide="pc.products.length">
+                    <td colspan="3">
+                        <p class="text-center">No Products Found</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <hr>
+            <h4>Debug:</h4>
+            <pre>{{ pc.products | json }}</pre>
+        </div>
+
+    </div>

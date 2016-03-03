@@ -1,0 +1,51 @@
+<div class="row">
+    <div ng-controller="CreateProductCtrl as pdt">
+        <h1>Create Product</h1>
+
+        <form id="CreateProductForm" name="CreateProductForm" class="form-horizontal" role="form"
+              ng-submit="pdt.createProduct()">
+            <legend class="sm-col-12">Basic Information</legend>
+
+            <div class="form-group">
+                <label id="lbl_name" for="name" class="col-sm-4 control-label">name</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="Name" id="name" placeholder=""
+                           ng-model="pdt.product.name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="lbl_displayName" for="displayName" class="col-sm-4 control-label">Display Name</label>
+
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="displayName" id="displayName" placeholder=""
+                           ng-model="pdt.product.displayName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label id="lbl_quota" for="quota" class="col-sm-4 control-label"
+                       is-required="CreateProductForm.quota">Quota</label>
+
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" name="quota" id="quota"
+                           ng-model="pdt.product.quota">
+                </div>
+            </div>
+
+            <pre>{{ pdt.product | json }}</pre>
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8 text-right">
+                    <a ng-href="/#/products" id="btn_cancel" class="btn btn-warning">Cancel</a>
+
+                    <button type="submit" class="btn btn-success" id="btn_create_pdt">Create Product</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
